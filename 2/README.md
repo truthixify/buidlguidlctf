@@ -9,7 +9,9 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "./INFTFlags.sol";
+interface INFTFlags {
+    function mint(address _recipient, uint256 _challengeId) external;
+}
 
 contract Challenge2 {
     address public nftContract;
@@ -38,6 +40,7 @@ To exploit this vulnerability, we can write a simple attacker contract to bypass
 interface IChallenge2 {
     function justCallMe() external;
 }
+
 contract Exploit {
     IChallenge2 public target;
 

@@ -9,7 +9,9 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "./INFTFlags.sol";
+interface INFTFlags {
+    function mint(address _recipient, uint256 _challengeId) external;
+}
 
 contract Challenge3 {
     address public nftContract;
