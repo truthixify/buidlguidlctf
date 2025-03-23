@@ -81,6 +81,7 @@ const challenge4Account = HDNodeWallet.fromMnemonic(Mnemonic.fromPhrase(hAccount
 This script revealed the derivation path and allowed us to extract the mnemonic of the minter(we can just `console.log(challenge4Account)` to see the phrase and run the deployment script locally). Using this mnemonic, we generated a valid signature as follows:
 
 ```javascript
+import { ethers } from "ethers"
 const mnemonic = "test test test test test test test test test test test junk";
 const wallet = ethers.Wallet.fromPhrase(mnemonic);
 const msgSender = "YOUR_ADDRESS";
@@ -105,7 +106,7 @@ console.log("Signature:", signature);
 ## Execution Steps:
 1. Extract the mnemonic from the deployment script.
 2. Generate the signature using the whitelisted minter's wallet.
-3. Call the mintFlag function with the valid signature.
+3. Call the mintFlag function with the minter address `wallet.address` and `signature` from the script above.
 
 # Result & Impact
 
